@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title> ToDoApp </title>
+</head>
+<body>
+    <h1> Stuff I Need To Do ------------------------------------------------------------------------------------------------------------------ </h1>
+    <form action = "/todos" method = "post">
+        <input type = "text" name = "description">
+        <button type = "submit"> Add </button>
+    </form>
+
+    <ul>
+    {{#todos}}
+        <form action = "/todos/{{_id}}/completed" method = "post">
+            <h3> {{description}} - {{done}}
+                <button type = "submit"> Done </button>
+            </h3>
+            
+        </form>
+    {{/todos}}
+    </ul>
+    
+    <h2> Done </h2>
+
+    <ul>
+    {{#donetodos}}
+        <form action = "/todos/{{_id}}/completed" method = "post">
+            <h3> {{description}} - {{done}} 
+                 <button type = "submit"> Whoops!</button>
+            </h3>
+           
+        </form>
+    {{/donetodos}}
+    </ul>
+
+<body>
+</html>
